@@ -3,6 +3,20 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\androidsign2.jks')
+            storePassword 'SansGranie69'
+            keyAlias 'key0'
+            keyPassword 'SansGranie69'
+        }
+        release {
+            storeFile file('C:\\androidsign2.jks')
+            storePassword 'SansGranie69'
+            keyAlias 'key0'
+            keyPassword 'SansGranie69'
+        }
+    }
     compileSdk 33
 
     defaultConfig {
@@ -13,6 +27,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
@@ -25,6 +40,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildToolsVersion '33.0.1'
+    compileSdkVersion 33
 }
 
 dependencies {
