@@ -24,10 +24,12 @@ android {
         minSdk 16
         targetSdk 33
         versionCode 1
-        versionName "1.0"
+        versionName '1.1'
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.release
+        minSdkVersion 14
+        targetSdkVersion 33
     }
 
     buildTypes {

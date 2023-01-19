@@ -2,6 +2,7 @@ package pl.zbieracz2000.nicalc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewDebug;
@@ -11,7 +12,14 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    float iloscpremixu, mocpremixu, iloscbazy, mocbazy, mocwynikowa, moctemp1, moctemp2, iloscwynikowa;
+    float iloscpremixu = 0,
+            mocpremixu = 0,
+            iloscbazy = 0,
+            mocbazy = 0,
+            mocwynikowa = 0,
+            moctemp1 = 0,
+            moctemp2 = 0,
+            iloscwynikowa = 0;
     String mocshow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,18 +28,35 @@ public class MainActivity extends AppCompatActivity {
         final Button button = findViewById(R.id.oblicz);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
                 final EditText editiloscPremixu =  (EditText) findViewById(R.id.iloscPremixu);
-                iloscpremixu =  Float.valueOf(editiloscPremixu.getText().toString());
-                Log.d("Ilość premixu:",Float.toString(iloscpremixu));
+                if(editiloscPremixu.getText().toString().isEmpty()) {
+                    iloscpremixu = 0;
+                } else {
+                    iloscpremixu =  Float.valueOf(editiloscPremixu.getText().toString());
+                    Log.d("Ilość premixu:",Float.toString(iloscpremixu));
+                }
                 final EditText editmocPremixu =  (EditText) findViewById(R.id.mocPremixu);
-                mocpremixu =  Float.valueOf(editmocPremixu.getText().toString());
-                Log.d("Moc premixu:",Float.toString(mocpremixu));
+                if(editmocPremixu.getText().toString().isEmpty()) {
+                    mocpremixu = 0;
+                } else {
+                    mocpremixu = Float.valueOf(editmocPremixu.getText().toString());
+                    Log.d("Moc premixu:", Float.toString(mocpremixu));
+                }
                 final EditText editiloscBazy =  (EditText) findViewById(R.id.iloscBazy);
-                iloscbazy =  Float.valueOf(editiloscBazy.getText().toString());
-                Log.d("Ilość bazy:",Float.toString(iloscbazy));
+                if(editiloscBazy.getText().toString().isEmpty()) {
+                    iloscbazy = 0;
+                } else {
+                    iloscbazy = Float.valueOf(editiloscBazy.getText().toString());
+                    Log.d("Ilość bazy:", Float.toString(iloscbazy));
+                }
                 final EditText editmocBazy =  (EditText) findViewById(R.id.mocBazy);
-                mocbazy =  Float.valueOf(editmocBazy.getText().toString());
-                Log.d("Moc bazy:",Float.toString(mocbazy));
+                if(editmocBazy.getText().toString().isEmpty()) {
+                    mocbazy = 0;
+                } else {
+                    mocbazy = Float.valueOf(editmocBazy.getText().toString());
+                    Log.d("Moc bazy:", Float.toString(mocbazy));
+                }
                 iloscwynikowa = iloscpremixu+iloscbazy;
                 moctemp1 = mocpremixu*iloscpremixu;
                 moctemp2 = mocbazy*iloscbazy;
