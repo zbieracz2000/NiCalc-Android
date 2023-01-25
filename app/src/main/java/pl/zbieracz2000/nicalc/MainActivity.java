@@ -1,5 +1,6 @@
 package pl.zbieracz2000.nicalc;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    float iloscpremixu = 0,
+    public float iloscpremixu = 0,
             mocpremixu = 0,
             iloscbazy = 0,
             mocbazy = 0,
@@ -23,12 +24,13 @@ public class MainActivity extends AppCompatActivity {
     String mocshow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Button button = findViewById(R.id.oblicz);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 final EditText editiloscPremixu =  (EditText) findViewById(R.id.iloscPremixu);
                 if(editiloscPremixu.getText().toString().isEmpty()) {
                     iloscpremixu = 0;
